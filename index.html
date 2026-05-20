@@ -21,6 +21,8 @@
       --bg-soft: #f6f8fb;
       --border: #e7eaf1;
       --shadow: 0 10px 30px rgba(0, 39, 118, 0.08);
+      --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+      --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -101,10 +103,12 @@
       text-decoration: none;
       font-weight: 500;
       font-size: 15px;
-      transition: color .2s ease;
+      transition: color 200ms var(--ease-out);
     }
 
-    nav a:hover { color: var(--ink); }
+    @media (hover: hover) and (pointer: fine) {
+      nav a:hover { color: var(--ink); }
+    }
 
     .btn {
       display: inline-flex;
@@ -115,27 +119,39 @@
       font-weight: 600;
       font-size: 15px;
       text-decoration: none;
-      transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+      transition:
+        transform 160ms var(--ease-out),
+        box-shadow 200ms var(--ease-out),
+        background 200ms var(--ease-out),
+        border-color 200ms var(--ease-out);
       cursor: pointer;
       border: none;
     }
+
+    .btn:active { transform: scale(0.97); }
 
     .btn-primary {
       background: var(--green);
       color: #fff;
       box-shadow: 0 6px 18px rgba(0, 156, 59, 0.35);
     }
-    .btn-primary:hover {
-      background: var(--green-dark);
-      transform: translateY(-1px);
+
+    @media (hover: hover) and (pointer: fine) {
+      .btn-primary:hover {
+        background: var(--green-dark);
+        transform: translateY(-1px);
+      }
     }
+    .btn-primary:active { transform: scale(0.97); }
 
     .btn-ghost {
       background: transparent;
       color: var(--ink);
       border: 1px solid var(--border);
     }
-    .btn-ghost:hover { border-color: var(--ink); }
+    @media (hover: hover) and (pointer: fine) {
+      .btn-ghost:hover { border-color: var(--ink); }
+    }
 
     .menu-toggle {
       display: none;
@@ -201,12 +217,12 @@
       height: 6px;
       border-radius: 50%;
       background: var(--green);
-      animation: pulse 2s infinite;
+      animation: pulse 2.4s ease-in-out infinite;
     }
 
     @keyframes pulse {
       0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
+      50% { opacity: 0.5; }
     }
 
     h1 {
@@ -321,19 +337,21 @@
       flex: 1;
       background: linear-gradient(180deg, var(--yellow) 0%, rgba(255, 223, 0, 0.4) 100%);
       border-radius: 4px 4px 0 0;
-      animation: grow 1.5s ease-out backwards;
+      transform-origin: bottom;
+      animation: grow 900ms var(--ease-out) backwards;
     }
 
-    .chart .bar:nth-child(1) { height: 30%; animation-delay: 0.1s; }
-    .chart .bar:nth-child(2) { height: 55%; animation-delay: 0.2s; }
-    .chart .bar:nth-child(3) { height: 40%; animation-delay: 0.3s; }
-    .chart .bar:nth-child(4) { height: 70%; animation-delay: 0.4s; }
-    .chart .bar:nth-child(5) { height: 60%; animation-delay: 0.5s; }
-    .chart .bar:nth-child(6) { height: 85%; animation-delay: 0.6s; }
-    .chart .bar:nth-child(7) { height: 100%; animation-delay: 0.7s; }
+    .chart .bar:nth-child(1) { height: 30%; animation-delay: 80ms; }
+    .chart .bar:nth-child(2) { height: 55%; animation-delay: 140ms; }
+    .chart .bar:nth-child(3) { height: 40%; animation-delay: 200ms; }
+    .chart .bar:nth-child(4) { height: 70%; animation-delay: 260ms; }
+    .chart .bar:nth-child(5) { height: 60%; animation-delay: 320ms; }
+    .chart .bar:nth-child(6) { height: 85%; animation-delay: 380ms; }
+    .chart .bar:nth-child(7) { height: 100%; animation-delay: 440ms; }
 
     @keyframes grow {
-      from { height: 0; opacity: 0; }
+      from { transform: scaleY(0.05); opacity: 0; }
+      to   { transform: scaleY(1); opacity: 1; }
     }
 
     .card-float-1 {
@@ -431,13 +449,32 @@
       border-radius: 16px;
       padding: 32px;
       border: 1px solid var(--border);
-      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      transition:
+        transform 220ms var(--ease-out),
+        box-shadow 220ms var(--ease-out),
+        border-color 220ms var(--ease-out);
+      opacity: 0;
+      transform: translateY(12px);
+      animation: cardIn 500ms var(--ease-out) forwards;
     }
 
-    .service-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow);
-      border-color: transparent;
+    .service-card:nth-child(1) { animation-delay: 40ms; }
+    .service-card:nth-child(2) { animation-delay: 90ms; }
+    .service-card:nth-child(3) { animation-delay: 140ms; }
+    .service-card:nth-child(4) { animation-delay: 190ms; }
+    .service-card:nth-child(5) { animation-delay: 240ms; }
+    .service-card:nth-child(6) { animation-delay: 290ms; }
+
+    @keyframes cardIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .service-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow);
+        border-color: transparent;
+      }
     }
 
     .service-icon {
@@ -652,10 +689,12 @@
       color: var(--muted);
       text-decoration: none;
       font-size: 14px;
-      transition: color .2s ease;
+      transition: color 200ms var(--ease-out);
     }
 
-    .footer-col a:hover { color: var(--ink); }
+    @media (hover: hover) and (pointer: fine) {
+      .footer-col a:hover { color: var(--ink); }
+    }
 
     .footer-bottom {
       padding-top: 24px;
@@ -682,15 +721,33 @@
       place-items: center;
       background: var(--bg-soft);
       color: var(--muted);
-      transition: background .2s ease, color .2s ease;
+      transition:
+        background 200ms var(--ease-out),
+        color 200ms var(--ease-out),
+        transform 160ms var(--ease-out);
     }
 
-    .socials a:hover {
-      background: var(--green);
-      color: #fff;
+    @media (hover: hover) and (pointer: fine) {
+      .socials a:hover {
+        background: var(--green);
+        color: #fff;
+      }
     }
+    .socials a:active { transform: scale(0.92); }
 
     .socials svg { width: 16px; height: 16px; }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .card-float-1, .card-float-2 { animation: none; }
+      .service-card { opacity: 1; transform: none; }
+    }
 
     /* Responsive */
     @media (max-width: 880px) {
