@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="First Brazil — soluções que conectam o Brasil ao mundo. Inovação, tecnologia e excelência para o seu negócio." />
+  <title>First Brazil — Conectando o Brasil ao futuro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #009C3B;
+      --green-dark: #00802f;
+      --yellow: #FFDF00;
+      --blue: #002776;
+      --blue-deep: #001a52;
+      --ink: #0b1020;
+      --muted: #5b6478;
+      --bg: #ffffff;
+      --bg-soft: #f6f8fb;
+      --border: #e7eaf1;
+      --shadow: 0 10px 30px rgba(0, 39, 118, 0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: saturate(180%) blur(12px);
+      -webkit-backdrop-filter: saturate(180%) blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--green) 0%, var(--blue) 100%);
+      position: relative;
+      box-shadow: 0 6px 18px rgba(0, 156, 59, 0.35);
+    }
+
+    .logo-mark::after {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      background: var(--yellow);
+      border-radius: 50%;
+      box-shadow: inset 0 0 0 4px var(--blue);
+    }
+
+    .logo span.accent { color: var(--green); }
+
+    nav ul {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      transition: color .2s ease;
+    }
+
+    nav a:hover { color: var(--ink); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 15px;
+      text-decoration: none;
+      transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: #fff;
+      box-shadow: 0 6px 18px rgba(0, 156, 59, 0.35);
+    }
+    .btn-primary:hover {
+      background: var(--green-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--border);
+    }
+    .btn-ghost:hover { border-color: var(--ink); }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      padding: 96px 0 80px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255, 223, 0, 0.18) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: -150px;
+      left: -150px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(0, 156, 59, 0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 64px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(0, 156, 59, 0.08);
+      color: var(--green-dark);
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .badge .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    h1 {
+      font-size: clamp(36px, 5vw, 56px);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    h1 .highlight {
+      background: linear-gradient(120deg, var(--green) 0%, var(--blue) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p.lead {
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 32px;
+      max-width: 520px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+    }
+
+    .stat span {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* Hero visual */
+    .hero-visual {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      max-width: 480px;
+      justify-self: end;
+      width: 100%;
+    }
+
+    .hero-card {
+      position: absolute;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 18px 20px;
+      border: 1px solid var(--border);
+    }
+
+    .card-main {
+      inset: 12% 8% 12% 8%;
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-deep) 100%);
+      color: #fff;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    .card-main::before {
+      content: "";
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(255, 223, 0, 0.25) 0%, transparent 70%);
+    }
+
+    .card-main h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      position: relative;
+    }
+
+    .card-main p {
+      font-size: 14px;
+      opacity: 0.85;
+      position: relative;
+    }
+
+    .card-main .chart {
+      display: flex;
+      align-items: flex-end;
+      gap: 6px;
+      height: 80px;
+      position: relative;
+    }
+
+    .chart .bar {
+      flex: 1;
+      background: linear-gradient(180deg, var(--yellow) 0%, rgba(255, 223, 0, 0.4) 100%);
+      border-radius: 4px 4px 0 0;
+      animation: grow 1.5s ease-out backwards;
+    }
+
+    .chart .bar:nth-child(1) { height: 30%; animation-delay: 0.1s; }
+    .chart .bar:nth-child(2) { height: 55%; animation-delay: 0.2s; }
+    .chart .bar:nth-child(3) { height: 40%; animation-delay: 0.3s; }
+    .chart .bar:nth-child(4) { height: 70%; animation-delay: 0.4s; }
+    .chart .bar:nth-child(5) { height: 60%; animation-delay: 0.5s; }
+    .chart .bar:nth-child(6) { height: 85%; animation-delay: 0.6s; }
+    .chart .bar:nth-child(7) { height: 100%; animation-delay: 0.7s; }
+
+    @keyframes grow {
+      from { height: 0; opacity: 0; }
+    }
+
+    .card-float-1 {
+      top: 4%;
+      right: 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .card-float-2 {
+      bottom: 4%;
+      left: 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      animation: float 6s ease-in-out infinite reverse;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    .float-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+
+    .float-icon.green { background: rgba(0, 156, 59, 0.12); color: var(--green); }
+    .float-icon.yellow { background: rgba(255, 223, 0, 0.18); color: #b88e00; }
+
+    .float-icon svg { width: 22px; height: 22px; }
+
+    .card-float-1 strong, .card-float-2 strong {
+      display: block;
+      font-size: 14px;
+    }
+
+    .card-float-1 span, .card-float-2 span {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* Sections */
+    section {
+      padding: 96px 0;
+    }
+
+    .section-head {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 64px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: clamp(28px, 3.5vw, 40px);
+      letter-spacing: -0.02em;
+      font-weight: 800;
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    /* Services */
+    .services { background: var(--bg-soft); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .service-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 32px;
+      border: 1px solid var(--border);
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+      border-color: transparent;
+    }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 20px;
+    }
+
+    .service-icon svg { width: 26px; height: 26px; }
+
+    .icon-green { background: rgba(0, 156, 59, 0.12); color: var(--green); }
+    .icon-yellow { background: rgba(255, 223, 0, 0.22); color: #a07900; }
+    .icon-blue { background: rgba(0, 39, 118, 0.1); color: var(--blue); }
+
+    .service-card h3 {
+      font-size: 19px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* About / Features */
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    .feature-list li {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .check {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--green);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .check svg { width: 16px; height: 16px; }
+
+    .feature-list strong {
+      display: block;
+      font-size: 17px;
+      margin-bottom: 4px;
+    }
+
+    .feature-list p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .about-visual {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      border-radius: 24px;
+      background: linear-gradient(135deg, var(--green) 0%, var(--blue) 100%);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .about-visual::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255, 223, 0, 0.4) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.15) 0%, transparent 50%);
+    }
+
+    .about-quote {
+      position: absolute;
+      bottom: 32px;
+      left: 32px;
+      right: 32px;
+      color: #fff;
+    }
+
+    .about-quote .q {
+      font-size: 48px;
+      line-height: 1;
+      opacity: 0.5;
+      margin-bottom: 8px;
+    }
+
+    .about-quote p {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    /* CTA */
+    .cta-section {
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-deep) 100%);
+      color: #fff;
+      border-radius: 24px;
+      padding: 64px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin: 0 24px;
+      max-width: 1152px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-section::before {
+      content: "";
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(255, 223, 0, 0.25) 0%, transparent 70%);
+    }
+
+    .cta-section::after {
+      content: "";
+      position: absolute;
+      bottom: -100px;
+      left: -100px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(0, 156, 59, 0.3) 0%, transparent 70%);
+    }
+
+    .cta-section h2 {
+      color: #fff;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .cta-section p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 18px;
+      margin-bottom: 32px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+    }
+
+    .cta-section .btn-primary {
+      background: var(--yellow);
+      color: var(--blue-deep);
+      box-shadow: 0 6px 18px rgba(255, 223, 0, 0.3);
+      position: relative;
+    }
+
+    .cta-section .btn-primary:hover {
+      background: #ffd700;
+    }
+
+    /* Footer */
+    footer {
+      padding: 56px 0 32px;
+      border-top: 1px solid var(--border);
+      margin-top: 96px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 12px;
+      max-width: 320px;
+    }
+
+    .footer-col h4 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color .2s ease;
+    }
+
+    .footer-col a:hover { color: var(--ink); }
+
+    .footer-bottom {
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .socials {
+      display: flex;
+      gap: 12px;
+    }
+
+    .socials a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--bg-soft);
+      color: var(--muted);
+      transition: background .2s ease, color .2s ease;
+    }
+
+    .socials a:hover {
+      background: var(--green);
+      color: #fff;
+    }
+
+    .socials svg { width: 16px; height: 16px; }
+
+    /* Responsive */
+    @media (max-width: 880px) {
+      nav ul, .nav .btn { display: none; }
+      .menu-toggle { display: block; }
+
+      .hero { padding: 56px 0; }
+      .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+      .hero-visual { max-width: 380px; margin: 0 auto; justify-self: center; }
+
+      section { padding: 64px 0; }
+      .features-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-visual { max-width: 440px; margin: 0 auto; }
+
+      .cta-section { padding: 48px 24px; }
+
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-brand { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero-stats { gap: 24px; }
+      .stat strong { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#" class="logo">
+        <span class="logo-mark" aria-hidden="true"></span>
+        First <span class="accent">Brazil</span>
+      </a>
+      <nav aria-label="Navegação principal">
+        <ul>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#diferenciais">Diferenciais</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+      <a href="#contato" class="btn btn-primary">Fale conosco</a>
+      <button class="menu-toggle" aria-label="Abrir menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="badge"><span class="dot"></span> Líderes em soluções made in Brazil</div>
+          <h1>Conectando o <span class="highlight">Brasil ao futuro</span> com tecnologia e excelência.</h1>
+          <p class="lead">
+            A First Brazil acelera o crescimento de empresas com soluções inovadoras,
+            consultoria estratégica e tecnologia de ponta — pensadas para a realidade brasileira.
+          </p>
+          <div class="hero-ctas">
+            <a href="#contato" class="btn btn-primary">
+              Comece agora
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="#servicos" class="btn btn-ghost">Nossos serviços</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat"><strong>+500</strong><span>clientes atendidos</span></div>
+            <div class="stat"><strong>15</strong><span>anos de mercado</span></div>
+            <div class="stat"><strong>27</strong><span>estados</span></div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-card card-main">
+            <div>
+              <h3>Crescimento real</h3>
+              <p>Resultados mensuráveis em todo o território nacional.</p>
+            </div>
+            <div class="chart">
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+            </div>
+          </div>
+
+          <div class="hero-card card-float-1">
+            <div class="float-icon green">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div>
+              <strong>+32% receita</strong>
+              <span>último trimestre</span>
+            </div>
+          </div>
+
+          <div class="hero-card card-float-2">
+            <div class="float-icon yellow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <strong>Suporte 24/7</strong>
+              <span>em português</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section class="services" id="servicos">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">O que fazemos</span>
+          <h2>Soluções completas para o seu negócio crescer</h2>
+          <p>Da estratégia à execução, entregamos resultados consistentes com a qualidade que só uma empresa brasileira de ponta pode oferecer.</p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-icon icon-green">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/></svg>
+            </div>
+            <h3>Consultoria estratégica</h3>
+            <p>Diagnósticos profundos e planos de ação que destravam crescimento sustentável para a sua empresa.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon icon-yellow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <h3>Tecnologia & software</h3>
+            <p>Desenvolvimento sob medida, integrações e automações para acelerar a sua operação.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon icon-blue">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <h3>Expansão internacional</h3>
+            <p>Conectamos empresas brasileiras a oportunidades no mundo e marcas globais ao mercado nacional.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon icon-green">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+            </div>
+            <h3>Marketing & branding</h3>
+            <p>Estratégias de marca, performance e conteúdo que constroem reputação e geram demanda qualificada.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon icon-yellow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3>Pessoas & cultura</h3>
+            <p>Recrutamento, desenvolvimento e cultura organizacional para equipes de alta performance.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon icon-blue">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3>Compliance & jurídico</h3>
+            <p>Apoio em conformidade regulatória, contratos e estruturação societária com segurança total.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre">
+      <div class="container">
+        <div class="features-grid">
+          <div class="about-visual" aria-hidden="true">
+            <div class="about-quote">
+              <div class="q">"</div>
+              <p>Somos brasileiros construindo o Brasil que queremos ver — com tecnologia, propósito e excelência.</p>
+            </div>
+          </div>
+          <div>
+            <span class="eyebrow">Quem somos</span>
+            <h2>Um time apaixonado pelo Brasil e movido por resultados.</h2>
+            <p style="color: var(--muted); font-size: 17px;">
+              Há mais de uma década, a First Brazil ajuda empresas de todos os portes a transformar
+              desafios em vantagem competitiva. Combinamos conhecimento profundo do mercado nacional
+              com práticas globais de excelência.
+            </p>
+            <ul class="feature-list" id="diferenciais">
+              <li>
+                <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <div>
+                  <strong>Expertise local, padrão global</strong>
+                  <p>Equipes especializadas com certificações internacionais e visão de mercado brasileiro.</p>
+                </div>
+              </li>
+              <li>
+                <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <div>
+                  <strong>Resultado mensurável</strong>
+                  <p>Trabalhamos com metas claras e indicadores transparentes em cada projeto.</p>
+                </div>
+              </li>
+              <li>
+                <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <div>
+                  <strong>Parceria de longo prazo</strong>
+                  <p>Mais de 90% dos nossos clientes seguem conosco após o primeiro projeto.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="contato" style="padding-top: 0;">
+      <div class="cta-section">
+        <h2>Pronto para acelerar seu negócio?</h2>
+        <p>Converse com um especialista da First Brazil. Diagnóstico inicial gratuito, sem compromisso.</p>
+        <a href="mailto:contato@firstbrazil.com.br" class="btn btn-primary">
+          Solicitar diagnóstico
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <span class="logo-mark" aria-hidden="true"></span>
+            First <span class="accent">Brazil</span>
+          </a>
+          <p>Conectando empresas, pessoas e ideias para construir o Brasil do futuro.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Empresa</h4>
+          <ul>
+            <li><a href="#sobre">Sobre nós</a></li>
+            <li><a href="#">Carreiras</a></li>
+            <li><a href="#">Imprensa</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Soluções</h4>
+          <ul>
+            <li><a href="#servicos">Consultoria</a></li>
+            <li><a href="#servicos">Tecnologia</a></li>
+            <li><a href="#servicos">Marketing</a></li>
+            <li><a href="#servicos">Internacional</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <ul>
+            <li><a href="mailto:contato@firstbrazil.com.br">contato@firstbrazil.com.br</a></li>
+            <li><a href="tel:+551140040404">+55 (11) 4004-0404</a></li>
+            <li><a href="#">São Paulo · Brasil</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> First Brazil. Todos os direitos reservados.</span>
+        <div class="socials" aria-label="Redes sociais">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.51a3.01 3.01 0 0 0-2.12-2.13C19.49 3.86 12 3.86 12 3.86s-7.49 0-9.38.52A3.01 3.01 0 0 0 .5 6.51 31.33 31.33 0 0 0 0 12a31.33 31.33 0 0 0 .5 5.49 3.01 3.01 0 0 0 2.12 2.13c1.89.52 9.38.52 9.38.52s7.49 0 9.38-.52a3.01 3.01 0 0 0 2.12-2.13A31.33 31.33 0 0 0 24 12a31.33 31.33 0 0 0-.5-5.49zM9.6 15.58V8.42L15.82 12z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('header nav ul');
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const isOpen = nav.style.display === 'flex';
+        nav.style.display = isOpen ? '' : 'flex';
+        nav.style.flexDirection = 'column';
+        nav.style.position = 'absolute';
+        nav.style.top = '72px';
+        nav.style.left = '0';
+        nav.style.right = '0';
+        nav.style.background = '#fff';
+        nav.style.padding = '24px';
+        nav.style.borderBottom = '1px solid var(--border)';
+        if (isOpen) {
+          nav.removeAttribute('style');
+        }
+      });
+    }
+  </script>
+</body>
+</html>
