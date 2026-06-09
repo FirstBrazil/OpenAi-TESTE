@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>First Brazil — Digital Marketing Agency</title>
+  <meta name="description" content="First Brazil is a results-driven digital marketing agency that helps ambitious brands grow beyond borders through paid media, SEO, social media, and brand strategy.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <div class="nav__container">
+      <a href="#" class="nav__logo">First Brazil</a>
+      <nav class="nav__links" role="navigation" aria-label="Main navigation">
+        <a href="#services" class="nav__link">Services</a>
+        <a href="#work" class="nav__link">Work</a>
+        <a href="#about" class="nav__link">About</a>
+        <a href="#contact" class="nav__link">Contact</a>
+      </nav>
+      <div class="nav__actions">
+        <a href="#contact" class="btn btn--nav">Get Started</a>
+      </div>
+      <button class="nav__hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div class="nav__mobile" id="nav-mobile" aria-hidden="true">
+      <a href="#services" class="nav__mobile-link">Services</a>
+      <a href="#work" class="nav__mobile-link">Work</a>
+      <a href="#about" class="nav__mobile-link">About</a>
+      <a href="#contact" class="nav__mobile-link">Contact</a>
+      <a href="#contact" class="btn btn--primary">Get Started</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ================================================
+         HERO
+    ================================================= -->
+    <section class="hero">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="hero__content">
+        <div class="hero__badge">Digital Marketing Agency</div>
+        <h1 class="hero__headline">We help brands<br>grow beyond borders</h1>
+        <p class="hero__sub">First Brazil builds powerful digital strategies, campaigns, and brands for companies that refuse to stay small.</p>
+        <form class="hero__cta" id="hero-form" novalidate>
+          <div class="hero__input-group">
+            <label for="hero-email" class="sr-only">Your email address</label>
+            <input
+              type="email"
+              id="hero-email"
+              class="hero__input"
+              placeholder="Enter your email address"
+              autocomplete="email"
+              required
+            >
+            <button type="submit" class="btn btn--primary hero__submit">Get Started</button>
+          </div>
+          <p class="hero__note" id="hero-feedback" aria-live="polite">No commitment. Free consultation.</p>
+        </form>
+      </div>
+      <div class="hero__scroll" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="hero__scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ================================================
+         MARQUEE
+    ================================================= -->
+    <section class="marquee" aria-label="Service areas">
+      <div class="marquee__track" aria-hidden="true">
+        <div class="marquee__content">
+          <span>Paid Media</span><span class="marquee__sep">·</span>
+          <span>SEO &amp; Content</span><span class="marquee__sep">·</span>
+          <span>Social Media</span><span class="marquee__sep">·</span>
+          <span>Web Design</span><span class="marquee__sep">·</span>
+          <span>Brand Strategy</span><span class="marquee__sep">·</span>
+          <span>Analytics</span><span class="marquee__sep">·</span>
+          <span>Performance Marketing</span><span class="marquee__sep">·</span>
+          <span>Creative Production</span><span class="marquee__sep">·</span>
+          <span>Paid Media</span><span class="marquee__sep">·</span>
+          <span>SEO &amp; Content</span><span class="marquee__sep">·</span>
+          <span>Social Media</span><span class="marquee__sep">·</span>
+          <span>Web Design</span><span class="marquee__sep">·</span>
+          <span>Brand Strategy</span><span class="marquee__sep">·</span>
+          <span>Analytics</span><span class="marquee__sep">·</span>
+          <span>Performance Marketing</span><span class="marquee__sep">·</span>
+          <span>Creative Production</span><span class="marquee__sep">·</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================
+         SERVICES
+    ================================================= -->
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">What We Do</span>
+          <h2 class="section-title">Full-stack digital<br>marketing services</h2>
+          <p class="section-desc">From strategy to execution, we cover every channel and touchpoint in your customer's journey.</p>
+        </div>
+        <div class="services__list">
+          <a href="#contact" class="service-item fade-in">
+            <div class="service-item__num">01</div>
+            <div class="service-item__content">
+              <h3 class="service-item__title">Paid Media</h3>
+              <p class="service-item__desc">Google Ads, Meta, LinkedIn, TikTok, and more. Data-driven campaigns engineered to maximize your return on investment across every platform.</p>
+            </div>
+            <div class="service-item__arrow" aria-hidden="true">→</div>
+          </a>
+          <a href="#contact" class="service-item fade-in">
+            <div class="service-item__num">02</div>
+            <div class="service-item__content">
+              <h3 class="service-item__title">SEO &amp; Content</h3>
+              <p class="service-item__desc">Sustainable organic growth through strategic content marketing and deep technical SEO optimization that compounds over time.</p>
+            </div>
+            <div class="service-item__arrow" aria-hidden="true">→</div>
+          </a>
+          <a href="#contact" class="service-item fade-in">
+            <div class="service-item__num">03</div>
+            <div class="service-item__content">
+              <h3 class="service-item__title">Social Media</h3>
+              <p class="service-item__desc">Building engaged communities and compelling brand narratives across Instagram, LinkedIn, TikTok, and beyond that convert followers into customers.</p>
+            </div>
+            <div class="service-item__arrow" aria-hidden="true">→</div>
+          </a>
+          <a href="#contact" class="service-item fade-in">
+            <div class="service-item__num">04</div>
+            <div class="service-item__content">
+              <h3 class="service-item__title">Web Design &amp; Development</h3>
+              <p class="service-item__desc">High-converting websites and landing pages built for performance, accessibility, and results — not just aesthetics.</p>
+            </div>
+            <div class="service-item__arrow" aria-hidden="true">→</div>
+          </a>
+          <a href="#contact" class="service-item fade-in">
+            <div class="service-item__num">05</div>
+            <div class="service-item__content">
+              <h3 class="service-item__title">Brand Strategy</h3>
+              <p class="service-item__desc">Positioning, visual identity, and messaging frameworks that differentiate you from the competition and resonate deeply with your audience.</p>
+            </div>
+            <div class="service-item__arrow" aria-hidden="true">→</div>
+          </a>
+          <a href="#contact" class="service-item fade-in">
+            <div class="service-item__num">06</div>
+            <div class="service-item__content">
+              <h3 class="service-item__title">Analytics &amp; Reporting</h3>
+              <p class="service-item__desc">Clear insights, transparent reporting, and data-driven decision making so you always know what's working and where to invest next.</p>
+            </div>
+            <div class="service-item__arrow" aria-hidden="true">→</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================
+         STATS
+    ================================================= -->
+    <section class="stats">
+      <div class="container">
+        <div class="stats__grid">
+          <div class="stat fade-in">
+            <div class="stat__number">200<span>+</span></div>
+            <div class="stat__label">Clients Served</div>
+          </div>
+          <div class="stat fade-in">
+            <div class="stat__number">$50M<span>+</span></div>
+            <div class="stat__label">Revenue Generated</div>
+          </div>
+          <div class="stat fade-in">
+            <div class="stat__number">12<span>+</span></div>
+            <div class="stat__label">Years of Experience</div>
+          </div>
+          <div class="stat fade-in">
+            <div class="stat__number">98<span>%</span></div>
+            <div class="stat__label">Client Retention Rate</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================
+         WORK / CASE STUDIES
+    ================================================= -->
+    <section class="work" id="work">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Our Work</span>
+          <h2 class="section-title">Results that speak<br>for themselves</h2>
+          <p class="section-desc">A selection of our recent campaigns and the outcomes that matter most to our clients.</p>
+        </div>
+        <div class="work__grid">
+          <article class="case-study fade-in">
+            <div class="case-study__tag">E-Commerce</div>
+            <h3 class="case-study__title">Fashion brand achieves 340% ROAS on paid media</h3>
+            <p class="case-study__desc">We rebuilt their entire paid media strategy from the ground up — optimizing creative, targeting, and bidding across Meta and Google to unlock 3× growth in twelve weeks.</p>
+            <div class="case-study__metrics">
+              <div class="metric">
+                <span class="metric__value">340%</span>
+                <span class="metric__label">ROAS Increase</span>
+              </div>
+              <div class="metric">
+                <span class="metric__value">2.1M</span>
+                <span class="metric__label">Monthly Impressions</span>
+              </div>
+            </div>
+            <a href="#contact" class="case-study__link">Read Case Study →</a>
+          </article>
+          <article class="case-study fade-in">
+            <div class="case-study__tag">SaaS</div>
+            <h3 class="case-study__title">B2B SaaS company doubles organic traffic in 8 months</h3>
+            <p class="case-study__desc">A comprehensive SEO and content strategy transformed their organic presence, reducing customer acquisition cost by 65% while doubling inbound lead volume.</p>
+            <div class="case-study__metrics">
+              <div class="metric">
+                <span class="metric__value">120%</span>
+                <span class="metric__label">Organic Growth</span>
+              </div>
+              <div class="metric">
+                <span class="metric__value">65%</span>
+                <span class="metric__label">CAC Reduction</span>
+              </div>
+            </div>
+            <a href="#contact" class="case-study__link">Read Case Study →</a>
+          </article>
+          <article class="case-study fade-in">
+            <div class="case-study__tag">Retail</div>
+            <h3 class="case-study__title">Retail chain records best Q4 with 4.2× ROAS</h3>
+            <p class="case-study__desc">A multi-channel campaign spanning Google, Meta, and programmatic delivered their strongest Q4 performance on record, with a 4.2× return on ad spend.</p>
+            <div class="case-study__metrics">
+              <div class="metric">
+                <span class="metric__value">4.2×</span>
+                <span class="metric__label">Return on Ad Spend</span>
+              </div>
+              <div class="metric">
+                <span class="metric__value">+180%</span>
+                <span class="metric__label">Q4 Revenue</span>
+              </div>
+            </div>
+            <a href="#contact" class="case-study__link">Read Case Study →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================
+         ABOUT
+    ================================================= -->
+    <section class="about" id="about">
+      <div class="container">
+        <div class="about__inner">
+          <div class="about__left fade-in">
+            <span class="section-label">About First Brazil</span>
+            <h2 class="section-title">Built for brands that<br>think beyond today</h2>
+          </div>
+          <div class="about__right fade-in">
+            <p class="about__text">First Brazil is a full-service digital marketing agency founded with one mission: to help ambitious companies build lasting competitive advantages online.</p>
+            <p class="about__text">We combine data science with creative thinking to build marketing systems that don't just generate leads — they build brands. Our team of strategists, creatives, and analysts works as an extension of yours, moving fast without losing sight of the long game.</p>
+            <a href="#contact" class="btn btn--primary">Work with us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================
+         TESTIMONIALS
+    ================================================= -->
+    <section class="testimonials">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Testimonials</span>
+          <h2 class="section-title">What our clients say</h2>
+        </div>
+        <div class="testimonials__grid">
+          <blockquote class="testimonial fade-in">
+            <p class="testimonial__quote">"First Brazil completely transformed our digital presence. In less than a year, our online revenue tripled and our brand recognition is at an all-time high."</p>
+            <footer class="testimonial__author">
+              <span class="testimonial__name">Maria Santos</span>
+              <span class="testimonial__role">CEO, Luxe Fashion Group</span>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonial fade-in">
+            <p class="testimonial__quote">"The team at First Brazil doesn't just run campaigns — they think like business owners. Every decision is tied to real outcomes, not vanity metrics."</p>
+            <footer class="testimonial__author">
+              <span class="testimonial__name">Carlos Oliveira</span>
+              <span class="testimonial__role">CMO, TechVentures BR</span>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonial fade-in">
+            <p class="testimonial__quote">"Working with First Brazil is the best marketing investment we've ever made. They're transparent, strategic, and genuinely care about our growth."</p>
+            <footer class="testimonial__author">
+              <span class="testimonial__name">Ana Rodrigues</span>
+              <span class="testimonial__role">Founder, Naturaleza</span>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================
+         PROCESS
+    ================================================= -->
+    <section class="process">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">How We Work</span>
+          <h2 class="section-title">A proven process for<br>predictable growth</h2>
+        </div>
+        <div class="process__steps">
+          <div class="process-step fade-in">
+            <div class="process-step__num">01</div>
+            <h3 class="process-step__title">Discover</h3>
+            <p class="process-step__desc">We deep-dive into your business, market, and competitors to identify the highest-leverage growth opportunities available to you.</p>
+          </div>
+          <div class="process-step fade-in">
+            <div class="process-step__num">02</div>
+            <h3 class="process-step__title">Strategize</h3>
+            <p class="process-step__desc">We build a custom roadmap that aligns every channel and campaign to your specific business objectives and budget constraints.</p>
+          </div>
+          <div class="process-step fade-in">
+            <div class="process-step__num">03</div>
+            <h3 class="process-step__title">Execute</h3>
+            <p class="process-step__desc">Our team moves fast, launching campaigns with precision and constantly optimizing based on real-time data and performance signals.</p>
+          </div>
+          <div class="process-step fade-in">
+            <div class="process-step__num">04</div>
+            <h3 class="process-step__title">Scale</h3>
+            <p class="process-step__desc">We compound what works, systematically expanding winning channels and strategies to unlock your next level of growth.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================
+         CTA / CONTACT
+    ================================================= -->
+    <section class="cta-section" id="contact">
+      <div class="container">
+        <div class="cta-section__inner fade-in">
+          <span class="section-label">Get in Touch</span>
+          <h2 class="cta-section__title">Ready to grow<br>your business?</h2>
+          <p class="cta-section__sub">Tell us about your project and we'll get back to you within 24 hours.</p>
+          <form class="cta-section__form" id="contact-form" novalidate>
+            <div class="hero__input-group">
+              <label for="contact-email" class="sr-only">Your email address</label>
+              <input
+                type="email"
+                id="contact-email"
+                class="hero__input"
+                placeholder="Enter your email address"
+                autocomplete="email"
+                required
+              >
+              <button type="submit" class="btn btn--primary hero__submit">Let's Talk</button>
+            </div>
+            <p class="hero__note" id="contact-feedback" aria-live="polite">No commitment. Free consultation.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================================================
+       FOOTER
+  ================================================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="#" class="footer__logo">First Brazil</a>
+          <p class="footer__tagline">Digital marketing for brands that think beyond today.</p>
+        </div>
+        <nav class="footer__nav" aria-label="Footer navigation">
+          <div class="footer__col">
+            <h4 class="footer__col-title">Services</h4>
+            <a href="#services" class="footer__link">Paid Media</a>
+            <a href="#services" class="footer__link">SEO &amp; Content</a>
+            <a href="#services" class="footer__link">Social Media</a>
+            <a href="#services" class="footer__link">Web Design</a>
+            <a href="#services" class="footer__link">Brand Strategy</a>
+            <a href="#services" class="footer__link">Analytics</a>
+          </div>
+          <div class="footer__col">
+            <h4 class="footer__col-title">Company</h4>
+            <a href="#about" class="footer__link">About</a>
+            <a href="#work" class="footer__link">Work</a>
+            <a href="#" class="footer__link">Blog</a>
+            <a href="#" class="footer__link">Careers</a>
+            <a href="#contact" class="footer__link">Contact</a>
+          </div>
+          <div class="footer__col">
+            <h4 class="footer__col-title">Connect</h4>
+            <a href="#" class="footer__link">Instagram</a>
+            <a href="#" class="footer__link">LinkedIn</a>
+            <a href="#" class="footer__link">Twitter / X</a>
+            <a href="#" class="footer__link">Facebook</a>
+          </div>
+        </nav>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2025 First Brazil. All rights reserved.</p>
+        <div class="footer__legal">
+          <a href="#" class="footer__link">Privacy Policy</a>
+          <a href="#" class="footer__link">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
