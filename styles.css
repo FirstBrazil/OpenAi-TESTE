@@ -984,30 +984,34 @@ img, svg {
    ===================================================== */
 
 .fade-in {
-  opacity: 0;
-  transform: translateY(24px);
   transition: opacity 0.65s ease, transform 0.65s ease;
 }
 
-.fade-in.visible {
+/* Only hide elements when JS is present — prevents invisible content without JS */
+.js .fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.js .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
 /* Stagger children inside a container */
-.stats__grid .fade-in:nth-child(2) { transition-delay: 0.08s; }
-.stats__grid .fade-in:nth-child(3) { transition-delay: 0.16s; }
-.stats__grid .fade-in:nth-child(4) { transition-delay: 0.24s; }
+.js .stats__grid .fade-in:nth-child(2) { transition-delay: 0.08s; }
+.js .stats__grid .fade-in:nth-child(3) { transition-delay: 0.16s; }
+.js .stats__grid .fade-in:nth-child(4) { transition-delay: 0.24s; }
 
-.work__grid .case-study:nth-child(2) { transition-delay: 0.1s; }
-.work__grid .case-study:nth-child(3) { transition-delay: 0.2s; }
+.js .work__grid .case-study:nth-child(2) { transition-delay: 0.1s; }
+.js .work__grid .case-study:nth-child(3) { transition-delay: 0.2s; }
 
-.testimonials__grid .testimonial:nth-child(2) { transition-delay: 0.1s; }
-.testimonials__grid .testimonial:nth-child(3) { transition-delay: 0.2s; }
+.js .testimonials__grid .testimonial:nth-child(2) { transition-delay: 0.1s; }
+.js .testimonials__grid .testimonial:nth-child(3) { transition-delay: 0.2s; }
 
-.process__steps .process-step:nth-child(2) { transition-delay: 0.08s; }
-.process__steps .process-step:nth-child(3) { transition-delay: 0.16s; }
-.process__steps .process-step:nth-child(4) { transition-delay: 0.24s; }
+.js .process__steps .process-step:nth-child(2) { transition-delay: 0.08s; }
+.js .process__steps .process-step:nth-child(3) { transition-delay: 0.16s; }
+.js .process__steps .process-step:nth-child(4) { transition-delay: 0.24s; }
 
 /* =====================================================
    RESPONSIVE — 1024px
